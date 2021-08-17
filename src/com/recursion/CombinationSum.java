@@ -18,37 +18,37 @@ public class CombinationSum {
             int target,
             ArrayList<Integer> ds,
             ArrayList<ArrayList<Integer>> result
-    ){
-        if (index == array.length){
-            if (target== 0 ){
+    ) {
+        if (index == array.length) {
+            if (target == 0) {
                 result.add(new ArrayList<>(ds));
             }
             return;
         }
 
-        if (array[index] <= target){
+        if (array[index] <= target) {
             ds.add(array[index]);
-            recCombinations(index, array, target-array[index], ds, result);
+            recCombinations(index, array, target - array[index], ds, result);
             ds.remove(ds.size() - 1);
         }
-        recCombinations(index+1, array, target, ds, result);
+        recCombinations(index + 1, array, target, ds, result);
     }
 
-    public static ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target){
+    public static ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         recCombinations(0, candidates, target, new ArrayList<>(), result);
         return result;
     }
 
     public static void main(String[] args) {
-        int[] candidates = {2,3,6,7};
-        int target = 7;
+        int[] candidates = {2, 3, 6, 7, 4, 8};
+        int target = 10;
         ArrayList<ArrayList<Integer>> result = combinationSum(candidates, target);
-        for (ArrayList nums:
-             result) {
+        for (ArrayList nums :
+                result) {
             System.out.println();
-            for (Object num:
-                 nums) {
+            for (Object num :
+                    nums) {
                 System.out.print("[" + num + "]");
             }
         }
