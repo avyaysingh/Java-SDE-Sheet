@@ -42,7 +42,7 @@ public class CombinationSum {
 
     public static void main(String[] args) {
         int[] candidates = {2, 3, 6, 7, 4, 8};
-        int target = 10;
+        int target = 11;
         ArrayList<ArrayList<Integer>> result = combinationSum(candidates, target);
         for (ArrayList nums :
                 result) {
